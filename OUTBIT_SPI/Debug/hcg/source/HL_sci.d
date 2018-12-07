@@ -16,6 +16,11 @@ hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/
 hcg/source/HL_sci.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_reg_gio.h
 hcg/source/HL_sci.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_sys_vim.h
 hcg/source/HL_sci.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_reg_vim.h
+hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/math.h
+hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/_ti_config.h
+hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/linkage.h
+hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/_defs.h
+hcg/source/HL_sci.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/machine/_limits.h
 
 ../hcg/source/HL_sci.c: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_sci.h: 
@@ -33,3 +38,8 @@ C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdbool.h:
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_reg_gio.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_sys_vim.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/OUTBIT_SPI/hcg/include/HL_reg_vim.h: 
+C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/math.h: 
+C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/_ti_config.h: 
+C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/linkage.h: 
+C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/_defs.h: 
+C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/machine/_limits.h: 

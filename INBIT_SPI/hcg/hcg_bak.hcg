@@ -7,7 +7,7 @@
     <tools>ti</tools>
   </DEVICE>
   <VERSION>
-    <version>04.06.00</version>
+    <version>04.04.00</version>
   </VERSION>
   <HET1>
     <FILENAME>
@@ -272,9 +272,7 @@
       <HDRMIBSPI>
         <NAME>HL_mibspi.h</NAME>
       </HDRMIBSPI>
-      <SRCMIBSPI>
-        <NAME>HL_mibspi.c</NAME>
-      </SRCMIBSPI>
+      <SRCMIBSPI/>
       <HDRSPI_R>
         <NAME>HL_reg_spi.h</NAME>
       </HDRSPI_R>
@@ -305,7 +303,7 @@
         <NAME/>
       </HET1ASMSRC>
       <STDHDRHET>
-        <NAME>std_nhet.h</NAME>
+        <NAME>HL_std_nhet.h</NAME>
       </STDHDRHET>
       <HDRHET_R>
         <NAME>HL_reg_het.h</NAME>
@@ -460,13 +458,6 @@
       <SRC14FEE/>
       <SRC15FEE/>
       <SRC16FEE/>
-      <HDR2PHY>
-        <NAME>HL_phy_tlk111.h</NAME>
-      </HDR2PHY>
-      <HDR7EMAC>
-        <NAME>HL_emac_phyConfig.h</NAME>
-      </HDR7EMAC>
-      <SRC2PHY/>
     </FILENAMES>
   </SYSTEM>
   <PINMUX>
@@ -556,7 +547,7 @@
         <PATH>include\HL_mibspi.h</PATH>
       </HDRMIBSPI>
       <SRCMIBSPI>
-        <PATH>source\HL_mibspi.c</PATH>
+        <PATH/>
       </SRCMIBSPI>
     </FILENAMES>
   </MIBSPI>
@@ -602,7 +593,7 @@
   <HET>
     <FILENAMES>
       <STDHDRHET>
-        <PATH>include\std_nhet.h</PATH>
+        <PATH>include\HL_std_nhet.h</PATH>
       </STDHDRHET>
       <HDRHET_R>
         <PATH>include\HL_reg_het.h</PATH>
@@ -666,15 +657,6 @@
       <SRCPHY>
         <PATH/>
       </SRCPHY>
-      <HDR2PHY>
-        <PATH>include\HL_phy_tlk111.h</PATH>
-      </HDR2PHY>
-      <HDR7EMAC>
-        <PATH>include\HL_emac_phyConfig.h</PATH>
-      </HDR7EMAC>
-      <SRC2PHY>
-        <PATH/>
-      </SRC2PHY>
     </FILENAMES>
   </EMAC>
   <DCC>

@@ -1,7 +1,7 @@
 /** @file HL_rti.c 
 *   @brief RTI Driver Source File
-*   @date 03.Apr.2015
-*   @version 04.04.00
+*   @date 07-July-2017
+*   @version 04.07.00
 *
 *   This file contains:
 *   - API Functions
@@ -11,7 +11,7 @@
 */
 
 /* 
-* Copyright (C) 2009-2015 Texas Instruments Incorporated - www.ti.com  
+* Copyright (C) 2009-2016 Texas Instruments Incorporated - www.ti.com  
 * 
 * 
 *  Redistribution and use in source and binary forms, with or without 
@@ -57,7 +57,9 @@
 /* USER CODE BEGIN (1) */
 /* USER CODE END */
 
-
+/* SourceId : RTI_SourceId_001 */
+/* DesignId : RTI_DesignId_001 */
+/* Requirements : HL_CONQ_RTI_SR2 */
 /** @fn void rtiInit(void)
 *   @brief Initializes RTI Driver
 *
@@ -155,6 +157,9 @@ void rtiInit(void)
 *
 *   This function starts selected counter block of the selected RTI module.
 */
+/* SourceId : RTI_SourceId_002 */
+/* DesignId : RTI_DesignId_002 */
+/* Requirements : HL_CONQ_RTI_SR3 */
 void rtiStartCounter(rtiBASE_t *rtiREG, uint32 counter)
 {
 /* USER CODE BEGIN (4) */
@@ -179,6 +184,9 @@ void rtiStartCounter(rtiBASE_t *rtiREG, uint32 counter)
 *
 *   This function stops selected counter block of the selected RTI module.
 */
+/* SourceId : RTI_SourceId_003 */
+/* DesignId : RTI_DesignId_003 */
+/* Requirements : HL_CONQ_RTI_SR4 */
 void rtiStopCounter(rtiBASE_t *rtiREG, uint32 counter)
 {
 /* USER CODE BEGIN (6) */
@@ -206,6 +214,9 @@ void rtiStopCounter(rtiBASE_t *rtiREG, uint32 counter)
 *
 *   This function resets selected counter block of the selected RTI module.
 */
+/* SourceId : RTI_SourceId_004 */
+/* DesignId : RTI_DesignId_004 */
+/* Requirements : HL_CONQ_RTI_SR5 */
 uint32 rtiResetCounter(rtiBASE_t *rtiREG, uint32 counter)
 {
     uint32 success = 0U;
@@ -246,6 +257,9 @@ uint32 rtiResetCounter(rtiBASE_t *rtiREG, uint32 counter)
 *
 *   This function will change the period of the selected compare.
 */
+/* SourceId : RTI_SourceId_005 */
+/* DesignId : RTI_DesignId_005 */
+/* Requirements : HL_CONQ_RTI_SR6 */
 void rtiSetPeriod(rtiBASE_t *rtiREG, uint32 compare, uint32 period)
 {
 /* USER CODE BEGIN (10) */
@@ -277,6 +291,9 @@ void rtiSetPeriod(rtiBASE_t *rtiREG, uint32 compare, uint32 period)
 *
 *   This function will return the period of the selected compare.
 */
+/* SourceId : RTI_SourceId_006 */
+/* DesignId : RTI_DesignId_006 */
+/* Requirements : HL_CONQ_RTI_SR9 */
 uint32 rtiGetPeriod(rtiBASE_t *rtiREG, uint32 compare)
 {
     uint32 period;
@@ -307,6 +324,9 @@ uint32 rtiGetPeriod(rtiBASE_t *rtiREG, uint32 compare)
 *
 *   This function will return the current tick of the selected compare.
 */
+/* SourceId : RTI_SourceId_007 */
+/* DesignId : RTI_DesignId_007 */
+/* Requirements : HL_CONQ_RTI_SR10 */
 uint32 rtiGetCurrentTick(rtiBASE_t *rtiREG, uint32 compare)
 {
     uint32 tick;
@@ -339,6 +359,9 @@ uint32 rtiGetCurrentTick(rtiBASE_t *rtiREG, uint32 compare)
 *   This function can be called to set the DWD expiration
 *   
 */
+/* SourceId : RTI_SourceId_008 */
+/* DesignId : RTI_DesignId_010 */
+/* Requirements : HL_CONQ_DWD_SR1 */
 void dwdInit(rtiBASE_t *rtiREG, uint16 dwdPreload)
 {
 /* USER CODE BEGIN (16) */
@@ -373,6 +396,9 @@ void dwdInit(rtiBASE_t *rtiREG, uint16 dwdPreload)
 *   This function can be called to set the DWD expiration
 *   
 */
+/* SourceId : RTI_SourceId_009 */
+/* DesignId : RTI_DesignId_011 */
+/* Requirements : HL_CONQ_DWD_SR2 */
 void dwwdInit(rtiBASE_t *rtiREG, dwwdReaction_t Reaction, uint16 dwdPreload, dwwdWindowSize_t Window_Size)
 {
 /* USER CODE BEGIN (18) */
@@ -397,6 +423,9 @@ void dwwdInit(rtiBASE_t *rtiREG, dwwdReaction_t Reaction, uint16 dwdPreload, dww
 *   This function will get the current DWWD down counter value.
 *   
 */
+/* SourceId : RTI_SourceId_010 */
+/* DesignId : RTI_DesignId_012 */
+/* Requirements : HL_CONQ_DWD_SR7 */
 uint32 dwwdGetCurrentDownCounter(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (20) */
@@ -415,6 +444,9 @@ uint32 dwwdGetCurrentDownCounter(rtiBASE_t *rtiREG)
 *   This function will Enable the DWD counter.
 *   
 */
+/* SourceId : RTI_SourceId_011 */
+/* DesignId : RTI_DesignId_013 */
+/* Requirements : HL_CONQ_DWD_SR3 */
 void dwdCounterEnable(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (22) */
@@ -436,6 +468,9 @@ void dwdCounterEnable(rtiBASE_t *rtiREG)
 *   This function can be called to set the Preload value for the watchdog expiration time.
 *   
 */
+/* SourceId : RTI_SourceId_012 */
+/* DesignId : RTI_DesignId_014 */
+/* Requirements : HL_CONQ_DWD_SR4 */
 void dwdSetPreload(rtiBASE_t *rtiREG, uint16 dwdPreload)
 {
 /* USER CODE BEGIN (24) */
@@ -452,6 +487,9 @@ void dwdSetPreload(rtiBASE_t *rtiREG, uint16 dwdPreload)
 *   This function can be called to reset Digital Watchdog.
 *   
 */
+/* SourceId : RTI_SourceId_013 */
+/* DesignId : RTI_DesignId_015 */
+/* Requirements : HL_CONQ_DWD_SR5 */
 void dwdReset(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (26) */
@@ -469,6 +507,9 @@ void dwdReset(rtiBASE_t *rtiREG)
 *   This function can be called to generate system reset using DWD.
 *   
 */
+/* SourceId : RTI_SourceId_014 */
+/* DesignId : RTI_DesignId_016 */
+/* Requirements : HL_CONQ_DWD_SR6 */
 void dwdGenerateSysReset(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (28) */
@@ -489,6 +530,9 @@ void dwdGenerateSysReset(rtiBASE_t *rtiREG)
 *   This function will get status of the DWD Key sequence.
 *   
 */
+/* SourceId : RTI_SourceId_015 */
+/* DesignId : RTI_DesignId_017 */
+/* Requirements : HL_CONQ_DWD_SR8 */
 boolean IsdwdKeySequenceCorrect(rtiBASE_t *rtiREG)
 {
 	boolean Status;
@@ -521,6 +565,9 @@ boolean IsdwdKeySequenceCorrect(rtiBASE_t *rtiREG)
 *   This function will get dwd Reset status.
 *   
 */
+/* SourceId : RTI_SourceId_016 */
+/* DesignId : RTI_DesignId_018 */
+/* Requirements : HL_CONQ_DWD_SR9 */
 dwdResetStatus_t dwdGetStatus(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (32) */
@@ -547,6 +594,9 @@ dwdResetStatus_t dwdGetStatus(rtiBASE_t *rtiREG)
 *   This function will clear dwd status register.
 *   
 */
+/* SourceId : RTI_SourceId_017 */
+/* DesignId : RTI_DesignId_020 */
+/* Requirements : HL_CONQ_DWD_SR11 */
 void dwdClearFlag(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (34) */
@@ -571,6 +621,9 @@ void dwdClearFlag(rtiBASE_t *rtiREG)
 *   This function will get status of the DWD or DWWD violation status.
 *   
 */
+/* SourceId : RTI_SourceId_018 */
+/* DesignId : RTI_DesignId_019 */
+/* Requirements : HL_CONQ_DWD_SR10 */
 dwdViolation_t dwdGetViolationStatus(rtiBASE_t *rtiREG)
 {
 /* USER CODE BEGIN (36) */
@@ -620,6 +673,9 @@ dwdViolation_t dwdGetViolationStatus(rtiBASE_t *rtiREG)
 *   It is possible to enable multiple notifications masked.
 */
 
+/* SourceId : RTI_SourceId_019 */
+/* DesignId : RTI_DesignId_008 */
+/* Requirements : HL_CONQ_RTI_SR7 */
 void rtiEnableNotification(rtiBASE_t *rtiREG, uint32 notification)
 {
 /* USER CODE BEGIN (38) */
@@ -652,6 +708,9 @@ void rtiEnableNotification(rtiBASE_t *rtiREG, uint32 notification)
 *   It is possible to disable multiple notifications masked.
 */
 
+/* SourceId : RTI_SourceId_020 */
+/* DesignId : RTI_DesignId_009 */
+/* Requirements : HL_CONQ_RTI_SR8 */
 void rtiDisableNotification(rtiBASE_t *rtiREG, uint32 notification)
 {
 /* USER CODE BEGIN (40) */
@@ -679,6 +738,9 @@ void rtiDisableNotification(rtiBASE_t *rtiREG, uint32 notification)
 *   registers to the struct pointed by config_reg
 *
 */
+/* SourceId : RTI_SourceId_021 */
+/* DesignId : RTI_DesignId_021 */
+/* Requirements : HL_CONQ_RTI_SR11 */
 void rtiGetConfigValue(rti_config_reg_t *config_reg, config_value_type_t type)
 {
 	if (type == InitialValue)
@@ -718,6 +780,9 @@ void rtiGetConfigValue(rti_config_reg_t *config_reg, config_value_type_t type)
 #pragma CODE_STATE(rtiCompare0Interrupt, 32)
 #pragma INTERRUPT(rtiCompare0Interrupt, IRQ)
 
+/* SourceId : RTI_SourceId_022 */
+/* DesignId : RTI_DesignId_022 */
+/* Requirements : HL_CONQ_RTI_SR12 */
 void rtiCompare0Interrupt(void)
 {
 /* USER CODE BEGIN (43) */
@@ -742,6 +807,9 @@ void rtiCompare0Interrupt(void)
 #pragma CODE_STATE(rtiCompare1Interrupt, 32)
 #pragma INTERRUPT(rtiCompare1Interrupt, IRQ)
 
+/* SourceId : RTI_SourceId_023 */
+/* DesignId : RTI_DesignId_022 */
+/* Requirements : HL_CONQ_RTI_SR13 */
 void rtiCompare1Interrupt(void)
 {
 /* USER CODE BEGIN (46) */
@@ -767,6 +835,9 @@ void rtiCompare1Interrupt(void)
 #pragma CODE_STATE(rtiCompare2Interrupt, 32)
 #pragma INTERRUPT(rtiCompare2Interrupt, IRQ)
 
+/* SourceId : RTI_SourceId_024 */
+/* DesignId : RTI_DesignId_022 */
+/* Requirements : HL_CONQ_RTI_SR14 */
 void rtiCompare2Interrupt(void)
 {
 /* USER CODE BEGIN (49) */
@@ -792,6 +863,9 @@ void rtiCompare2Interrupt(void)
 #pragma CODE_STATE(rtiCompare3Interrupt, 32)
 #pragma INTERRUPT(rtiCompare3Interrupt, IRQ)
 
+/* SourceId : RTI_SourceId_025 */
+/* DesignId : RTI_DesignId_022 */
+/* Requirements : HL_CONQ_RTI_SR15 */
 void rtiCompare3Interrupt(void)
 {
 /* USER CODE BEGIN (52) */

@@ -17,6 +17,8 @@ hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_adc.h
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_gio.h
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_gio.h
+hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_mibspi.h
+hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_mibspi.h
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_sci.h
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_sci.h
 hcg/source/HL_notification.obj: C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_rti.h
@@ -49,6 +51,8 @@ C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_adc.h:
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_adc.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_gio.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_gio.h: 
+C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_mibspi.h: 
+C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_mibspi.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_sci.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_reg_sci.h: 
 C:/Users/nlcmo/workspace_v8/project1/RM57Lx-SPI/INBIT_SPI/hcg/include/HL_rti.h: 
