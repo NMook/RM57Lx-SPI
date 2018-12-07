@@ -7,7 +7,7 @@
  */
 
 /* 
-* Copyright (C) 2009-2015 Texas Instruments Incorporated - www.ti.com  
+* Copyright (C) 2009-2016 Texas Instruments Incorporated - www.ti.com  
 * 
 * 
 *  Redistribution and use in source and binary forms, with or without 
@@ -52,7 +52,7 @@
 #include "HL_hw_emac.h"
 #include "HL_hw_emac_ctrl.h"
 #include "HL_mdio.h"
-#include "HL_phy_dp83640.h"
+#include "HL_emac_phyConfig.h"
 
 #ifdef __cplusplus
 extern "C" {

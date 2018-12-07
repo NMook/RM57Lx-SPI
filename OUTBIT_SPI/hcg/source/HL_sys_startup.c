@@ -1,7 +1,7 @@
 /** @file HL_sys_startup.c 
 *   @brief Startup Source File
-*   @date 03.Apr.2015
-*   @version 04.04.00
+*   @date 07-July-2017
+*   @version 04.07.00
 *
 *   This file contains:
 *   - Include Files
@@ -14,7 +14,7 @@
 */
 
 /* 
-* Copyright (C) 2009-2015 Texas Instruments Incorporated - www.ti.com  
+* Copyright (C) 2009-2016 Texas Instruments Incorporated - www.ti.com  
 * 
 * 
 *  Redistribution and use in source and binary forms, with or without 
@@ -80,7 +80,7 @@ volatile uint64 crcAtInit_FLASH = 0;
 /*SAFETYMCUSW 218 S MR:20.2 <APPROVED> "Functions from library" */
 extern void __TI_auto_init(void);
 /*SAFETYMCUSW 354 S MR:NA <APPROVED> " Startup code(main should be declared by the user)" */
-extern void main(void);
+extern int main(void);
 /*SAFETYMCUSW 122 S MR:20.11 <APPROVED> "Startup code(exit and abort need to be present)" */
 /*SAFETYMCUSW 354 S MR:NA <APPROVED> " Startup code(Extern declaration present in the library)" */
 extern void exit(int _status);
@@ -107,6 +107,9 @@ void _c_int00(void);
 #pragma INTERRUPT(_c_int00, RESET)
 #pragma WEAK(_c_int00)
 
+/* SourceId : STARTUP_SourceId_001 */
+/* DesignId : STARTUP_DesignId_001 */
+/* Requirements : HL_CONQ_STARTUP_SR1 */
 void _c_int00(void)
 {
 
@@ -136,6 +139,12 @@ void _c_int00(void)
 #if 0
 /* USER CODE END */
 
+    /* Initialize Core Registers to avoid CCM Error */
+    _coreInitRegisters_();
+	
+    /* Initialize Stack Pointers */
+    _coreInitStackPointer_();
+
     /* Reset handler: the following instructions read from the system exception status register
      * to identify the cause of the CPU reset.
      */
@@ -154,14 +163,9 @@ void _c_int00(void)
 /* USER CODE BEGIN (7) */
 /* USER CODE END */
 
-        /* Initialize Core Registers to avoid CCM Error */
-        _coreInitRegisters_();
-
 /* USER CODE BEGIN (8) */
 /* USER CODE END */
 
-        /* Initialize Stack Pointers */
-        _coreInitStackPointer_();
 
 /* USER CODE BEGIN (9) */
 /* USER CODE END */
@@ -217,6 +221,7 @@ void _c_int00(void)
         break;
 		
         case WATCHDOG_RESET:
+        case WATCHDOG2_RESET:
 /* USER CODE BEGIN (15) */
     SL_ESM_Init(ESM_ApplicationCallback);
     _enable_interrupt_();
@@ -249,19 +254,12 @@ void _c_int00(void)
         break;
     
         case CPU0_RESET:
-		case CPU1_RESET:
 /* USER CODE BEGIN (16) */
 /* USER CODE END */
 
-        /* Initialize Core Registers to avoid CCM Error */
-        _coreInitRegisters_();
-
 /* USER CODE BEGIN (17) */
 /* USER CODE END */
-
-        /* Initialize Stack Pointers */
-        _coreInitStackPointer_();
-
+		
 /* USER CODE BEGIN (18) */
 #endif
             else if((RESET_TYPE_OSC_FAILURE == resetReason) || (RESET_TYPE_WATCHDOG == resetReason))

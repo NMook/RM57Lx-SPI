@@ -2,7 +2,7 @@
 /* sys_link.cmd                                                               */
 /*                                                                            */
 /* 
-* Copyright (C) 2009-2015 Texas Instruments Incorporated - www.ti.com  
+* Copyright (C) 2009-2016 Texas Instruments Incorporated - www.ti.com  
 * 
 * 
 *  Redistribution and use in source and binary forms, with or without 
@@ -97,10 +97,10 @@ SECTIONS
 #if 0
 /* USER CODE END */
     .intvecs : {} > VECTORS
-    .text   align(8) : {} > FLASH0 | FLASH1
-    .const  align(8) : {} > FLASH0 | FLASH1
-    .cinit  align(8) : {} > FLASH0 | FLASH1
-    .pinit  align(8) : {} > FLASH0 | FLASH1
+    .text   align(32) : {} > FLASH0 | FLASH1
+    .const  align(32) : {} > FLASH0 | FLASH1
+    .cinit  align(32) : {} > FLASH0 | FLASH1
+    .pinit  align(32) : {} > FLASH0 | FLASH1
     .bss     : {} > RAM
     .data    : {} > RAM
     .sysmem  : {} > RAM

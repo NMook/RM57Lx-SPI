@@ -1,7 +1,7 @@
 /** @file HL_sys_vim.h
 *   @brief Vectored Interrupt Module Header File
-*   @date 03.Apr.2015
-*   @version 04.04.00
+*   @date 07-July-2017
+*   @version 04.07.00
 *   
 *   This file contains:
 *   - VIM Type Definitions
@@ -11,7 +11,7 @@
 */
 
 /* 
-* Copyright (C) 2009-2015 Texas Instruments Incorporated - www.ti.com  
+* Copyright (C) 2009-2016 Texas Instruments Incorporated - www.ti.com  
 * 
 * 
 *  Redistribution and use in source and binary forms, with or without 
@@ -95,6 +95,7 @@ extern void rtiCompare0Interrupt(void);
 extern void rtiCompare1Interrupt(void);
 extern void rtiCompare2Interrupt(void);
 extern void rtiCompare3Interrupt(void);
+extern void mibspi1HighLevelInterrupt(void);
 extern void esmLowInterrupt(void);
 
 /* USER CODE BEGIN (3) */
@@ -273,7 +274,7 @@ typedef struct vim_config_reg
                                     |(uint32)((uint32)0U << 9U)\
                                     |(uint32)((uint32)0U << 10U)\
                                     |(uint32)((uint32)0U << 11U)\
-                                    |(uint32)((uint32)0U << 12U)\
+                                    |(uint32)((uint32)1U << 12U)\
                                     |(uint32)((uint32)0U << 13U)\
                                     |(uint32)((uint32)0U << 14U)\
                                     |(uint32)((uint32)0U << 15U)\
