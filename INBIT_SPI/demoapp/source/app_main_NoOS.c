@@ -27,6 +27,9 @@ void main()
     // Buffer to store received data from master.
     uint16_t rxBuffer[10];
 
+    _enable_interrupt_();
+    volatile boolean retVal; /* For function return values */
+
     _enable_IRQ();
 
     gioInit();

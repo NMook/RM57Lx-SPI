@@ -30,7 +30,8 @@ void main()
     // Buffer to store received data from slave. (Currently unused)
     uint16_t rxBuffer[10];
 
-    _enable_IRQ();
+    _enable_interrupt_();
+    volatile boolean retVal; /* For function return values */
 
     gioInit();
     adcInit();
