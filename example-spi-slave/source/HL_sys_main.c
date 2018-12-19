@@ -74,8 +74,6 @@ uint32_t i;
 int main(void)
 {
 /* USER CODE BEGIN (3) */
-
-
     uint32_t error = 0;
     uint16 TG0_TX_DATA[8] = {0x1000, 0x1111, 0x1222, 0x1333, 0x1444, 0x1555, 0x1666, 0x1777};
     uint16 TG0_RX_DATA[8]= {0};
@@ -97,11 +95,11 @@ int main(void)
 
     TG3_IS_Complete = 0x55555555;
 
-
     /* Enable TG0 to start, once tickCNT triggers */
     mibspiTransfer(mibspiREG1,0);
 
-
+    // The following while-loop was inspired by the code uploaded at forum post:
+    // https://e2e.ti.com/support/microcontrollers/hercules/f/312/t/613271
     while(1)
     {
         /* Wait until this flag is set in TG3 ISR */

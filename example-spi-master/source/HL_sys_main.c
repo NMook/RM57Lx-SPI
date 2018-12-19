@@ -102,6 +102,8 @@ int main(void)
     /* Fill the transfer Groups */
     mibspiSetData(mibspiREG1,0,TG0_TX_DATA);
 
+    // The following while-loop was inspired by the code uploaded at forum post:
+    // https://e2e.ti.com/support/microcontrollers/hercules/f/312/t/613271
     while(1)
     {
         TG3_IS_Complete = 0x55555555;
