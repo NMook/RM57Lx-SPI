@@ -80,15 +80,6 @@ int main(void)
     uint16 TG0_TX_DATA[8] = {0x1000, 0x1111, 0x1222, 0x1333, 0x1444, 0x1555, 0x1666, 0x1777};
     uint16 TG0_RX_DATA[8]= {0};
 
-//    uint16 TG1_TX_DATA[8] = {0x2000, 0x2111, 0x2222, 0x2333, 0x2444, 0x2555, 0x2666, 0x2777};
-//    uint16 TG1_RX_DATA[8]= {0};
-//
-//    uint16 TG2_TX_DATA[8] = {0x3000, 0x3111, 0x3222, 0x3333, 0x3444, 0x3555, 0x3666, 0x3777};
-//    uint16 TG2_RX_DATA[8]= {0};
-//
-//    uint16 TG3_TX_DATA[8] = {0x4000, 0x4111, 0x4222, 0x4333, 0x4444, 0x4555, 0x4666, 0x4777};
-//    uint16 TG3_RX_DATA[8]= {0};
-
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
 
@@ -101,15 +92,8 @@ int main(void)
      */
     mibspiInit();
 
-    /* - enabling loopback ( this is to emulate data transfer without external wires */
-    //mibspiEnableLoopback(mibspiREG1,Digital_Lbk);
-
-
-    /* Enable TG 0,1,2,3 complete interrupt to INT 0 */
+    /* Enable TG 0 complete interrupt to INT 0 */
     mibspiEnableGroupNotification(mibspiREG1,0,0);
-//    mibspiEnableGroupNotification(mibspiREG1,1,0);
-//    mibspiEnableGroupNotification(mibspiREG1,2,0);
-//    mibspiEnableGroupNotification(mibspiREG1,3,0);
 
     TG3_IS_Complete = 0x55555555;
 
@@ -148,20 +132,6 @@ void mibspiGroupNotification(mibspiBASE_t *mibspi, uint32 group)
         case 0 :
             /* Enable TG1 to start, SW Trigger */
             TG3_IS_Complete = 0xA5A5A5A5;
-            //mibspiTransfer(mibspiREG1,1);
-            break;
-        case 1 :
-            /* Enable TG1 to start, SW Trigger */
-            //mibspiTransfer(mibspiREG1,2);
-            break;
-        case 2 :
-            /* Enable TG1 to start, SW Trigger */
-            //mibspiTransfer(mibspiREG1,3);
-            break;
-        case 3 :
-            /* Enable TG0 to start, SW Trigger */
-            //mibspiTransfer(mibspiREG1,0);
-            //TG3_IS_Complete = 0xA5A5A5A5;
             break;
         default :
             while(1);
