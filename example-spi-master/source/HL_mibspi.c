@@ -208,7 +208,7 @@ uint32 i ;
             while (i < (8U-1U))
             {
                 mibspiRAM1->tx[i].control = (uint16)((uint16)4U << 13U)  /* buffer mode */
-                                          | (uint16)((uint16)1U << 12U)  /* chip select hold */
+                                          | (uint16)((uint16)0U << 12U)  /* chip select hold */
                                           | (uint16)((uint16)0U << 10U)  /* enable WDELAY */
                                           | (uint16)((uint16)0U << 11U)  /* lock transmission */
                                           | (uint16)((uint16)0U << 8U)  /* data format */
@@ -235,7 +235,7 @@ uint32 i ;
             while (i < ((8U+8U)-1U))
             {
                 mibspiRAM1->tx[i].control = (uint16)((uint16)4U << 13U)  /* buffer mode */
-                                          | (uint16)((uint16)1U << 12U)  /* chip select hold */
+                                          | (uint16)((uint16)0U << 12U)  /* chip select hold */
                                           | (uint16)((uint16)0U << 10U)  /* enable WDELAY */
                                           | (uint16)((uint16)0U << 11U)  /* lock transmission */
                                           | (uint16)((uint16)0U << 8U)  /* data format */
@@ -262,7 +262,7 @@ uint32 i ;
             while (i < ((8U+8U+8U)-1U))
             {
                 mibspiRAM1->tx[i].control = (uint16)((uint16)4U << 13U)  /* buffer mode */
-                                          | (uint16)((uint16)1U << 12U)  /* chip select hold */
+                                          | (uint16)((uint16)0U << 12U)  /* chip select hold */
                                           | (uint16)((uint16)0U << 10U)  /* enable WDELAY */
                                           | (uint16)((uint16)0U << 11U)  /* lock transmission */
                                           | (uint16)((uint16)0U << 8U)  /* data format */
@@ -289,7 +289,7 @@ uint32 i ;
             while (i < ((8U+8U+8U+8U)-1U))
             {
                 mibspiRAM1->tx[i].control = (uint16)((uint16)4U << 13U)  /* buffer mode */
-                                          | (uint16)((uint16)1U << 12U)  /* chip select hold */
+                                          | (uint16)((uint16)0U << 12U)  /* chip select hold */
                                           | (uint16)((uint16)0U << 10U)  /* enable WDELAY */
                                           | (uint16)((uint16)0U << 11U)  /* lock transmission */
                                           | (uint16)((uint16)0U << 8U)  /* data format */
