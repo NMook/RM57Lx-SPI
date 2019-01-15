@@ -94,7 +94,7 @@ void spiInit(void)
                    | (uint32)((uint32)0U << 0U);  /* C2EDELAY */
 
     /** - Data Format 0 */
-    spiREG1->FMT0 = (uint32)((uint32)0U << 24U)  /* wdelay */
+    spiREG1->FMT0 = (uint32)((uint32)5U << 24U)  /* wdelay */
                   | (uint32)((uint32)0U << 23U)  /* parity Polarity */
                   | (uint32)((uint32)0U << 22U)  /* parity enable */
                   | (uint32)((uint32)0U << 21U)  /* wait on enable */
