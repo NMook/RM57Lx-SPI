@@ -134,7 +134,7 @@ int main(void)
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
     };
     // SPI configuration. Left to right: Chip select hold, WS_Delay, Data format, Chip select.
-    spiDAT1_t config = {true, true, SPI_FMT_0, 0x00};
+    spiDAT1_t config = {true, true, SPI_FMT_0, 0x01};
 
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
@@ -143,6 +143,7 @@ int main(void)
     sciInit();
 
     spiTransmitAndReceiveData(spiREG1,&config,264,TG0_TX_DATA,TG0_RX_DATA);
+    //spiReceiveData(spiREG1,&config,264,TG0_RX_DATA);
 
 /* USER CODE END */
 
