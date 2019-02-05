@@ -19,6 +19,7 @@ source/HL_sys_main.obj: C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/i
 source/HL_sys_main.obj: C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_reg_mibspi.h
 source/HL_sys_main.obj: C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_sci.h
 source/HL_sys_main.obj: C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_reg_sci.h
+source/HL_sys_main.obj: C:/Users/nlcmo/workspace_v8/project1/QController/Hercules/herculesprintflib/include/herculesprintf.h
 
 ../source/HL_sys_main.c: 
 C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_sys_common.h: 
@@ -39,3 +40,4 @@ C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_mibspi.h:
 C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_reg_mibspi.h: 
 C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_sci.h: 
 C:/Users/nlcmo/workspace_v8/project1/example-spi-slave/include/HL_reg_sci.h: 
+C:/Users/nlcmo/workspace_v8/project1/QController/Hercules/herculesprintflib/include/herculesprintf.h: 

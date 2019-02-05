@@ -70,6 +70,7 @@
 
 uint32_t TG3_IS_Complete;
 uint32_t i;
+uint32_t j;
 
 /* USER CODE END */
 
@@ -129,17 +130,21 @@ int main(void)
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
     };
     // SPI configuration. Left to right: Chip select hold, WS_Delay, Data format, Chip select.
-    spiDAT1_t config = {false, true, SPI_FMT_0, ~0x01};
+    spiDAT1_t config = {false, true, SPI_FMT_0, CS_0};
 
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
     spiInit();
     //spiEnableLoopback(spiREG1, Digital_Lbk);
+    int delay;
+    while (1) {
+        for (j = 0; j < 264; ++j)
+        {
+            spiTransmitData(spiREG1,&config,1,&TG0_TX_DATA[j]);
 
-    while(1)
-    {
-        //spiTransmitAndReceiveData(spiREG1,&config,264,TG0_TX_DATA,TG0_RX_DATA);
-        spiTransmitData(spiREG1,&config,264,TG0_TX_DATA);
+            delay = 100000;
+            while (delay--);
+        }
     }
 
 /* USER CODE END */

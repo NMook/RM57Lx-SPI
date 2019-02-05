@@ -33,6 +33,7 @@ ORDERED_OBJS += \
 "../source/HL_sys_link.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
+-l"C:/Users/nlcmo/workspace_v8/project1/QController/Hercules/herculesprintflib/Debug/herculesprintflib.lib" \
 
 -include ../makefile.init
 
@@ -159,7 +160,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 example-spi-slave.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/bin/armcl" -mv7R5 --code_state=32 --float_support=VFPv3D16 -me -g --diag_warning=225 --diag_wrap=off --display_error_number --enum_type=packed --abi=eabi -z -m"example-spi-slave.map" --heap_size=0x800 --stack_size=0x800 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="example-spi-slave_linkInfo.xml" --rom_model -o "example-spi-slave.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/bin/armcl" -mv7R5 --code_state=32 --float_support=VFPv3D16 -me -g --diag_warning=225 --diag_wrap=off --display_error_number --enum_type=packed --abi=eabi -z -m"example-spi-slave.map" --heap_size=0x800 --stack_size=0x800 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/lib" -i"C:/Users/nlcmo/workspace_v8/project1/QController/Hercules/herculesprintflib/Debug" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="example-spi-slave_linkInfo.xml" --rom_model -o "example-spi-slave.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

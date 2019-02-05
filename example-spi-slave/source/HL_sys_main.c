@@ -55,6 +55,7 @@
 #include "HL_mibspi.h"
 #include "HL_reg_spi.h"
 #include "HL_sci.h"
+#include "herculesprintf.h"
 /* USER CODE END */
 
 /** @fn void main(void)
@@ -133,7 +134,7 @@ int main(void)
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
     };
     // SPI configuration. Left to right: Chip select hold, WS_Delay, Data format, Chip select.
-    spiDAT1_t config = {false, true, SPI_FMT_0, ~0x01};
+    spiDAT1_t config = {false, true, SPI_FMT_0, CS_0};
 
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
@@ -141,8 +142,32 @@ int main(void)
     spiInit();
     sciInit();
 
-    //spiTransmitAndReceiveData(spiREG1,&config,264,TG0_TX_DATA,TG0_RX_DATA);
-    spiReceiveData(spiREG1,&config,264,TG0_RX_DATA);
+    uint16 receivedNumber;
+    uint32_t j = 0;
+    while (j < 264) {
+        if (spiReceiveData(spiREG1,&config,1,&receivedNumber) == 0) {
+            hercules_printf(sciREG1, "%u\n\r", receivedNumber); // Print received number to UART
+            TG0_RX_DATA[j] = receivedNumber;
+        } else {
+            spiREG1->FLG |= 0xFF;   // Reset error flag
+            hercules_printf(sciREG1, "ERROR\n\r");
+            TG0_RX_DATA[j] = 0xFFFF;
+            if (j != 0) {   // Skip next message if not the first.
+                j++;
+            }
+        }
+        j++;
+    }
+
+    // Checking received messages with correct messages.
+    for (j = 0; j < 264; j++) {
+        if (TG0_RX_DATA[j] != TG0_TX_DATA[j]) {
+            error++;
+        }
+    }
+
+    hercules_printf(sciREG1, "DONE");
+
 
 /* USER CODE END */
 
