@@ -1,10 +1,10 @@
 ******************************************************************************
                   TI ARM Linker PC v18.1.4                     
 ******************************************************************************
->> Linked Tue Feb  5 15:58:13 2019
+>> Linked Tue Feb  5 16:38:06 2019
 
 OUTPUT FILE NAME:   <example-spi-slave.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 000050e0
+ENTRY POINT SYMBOL: "_c_int00"  address: 000050d4
 
 
 MEMORY CONFIGURATION
@@ -12,7 +12,7 @@ MEMORY CONFIGURATION
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
   VECTORS               00000000   00000020  00000020  00000000     X
-  FLASH0                00000020   001fffe0  000057b0  001fa830  R  X
+  FLASH0                00000020   001fffe0  00005da4  001fa23c  R  X
   FLASH1                00200000   00200000  00000000  00200000  R  X
   STACKS                08000000   00001500  00000000  00001500  RW  
   RAM                   08001500   0007eb00  000000c8  0007ea38  RW  
@@ -22,13 +22,13 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00005370   00005370    r-x
+00000000    00000000    000053b8   000053b8    r-x
   00000000    00000000    00000020   00000020    r-x .intvecs
-  00000020    00000020    00005350   00005350    r-x .text
-00005380    00005380    0000044c   0000044c    r--
-  00005380    00005380    0000044c   0000044c    r-- .const
-000057e0    000057e0    00000014   00000014    r--
-  000057e0    000057e0    00000014   00000014    r-- .cinit
+  00000020    00000020    00005398   00005398    r-x .text
+000053c0    000053c0    000009f8   000009f8    r--
+  000053c0    000053c0    000009f8   000009f8    r-- .const
+00005dc0    00005dc0    00000014   00000014    r--
+  00005dc0    00005dc0    00000014   00000014    r-- .cinit
 08001500    08001500    000000c8   00000000    rw-
   08001500    08001500    000000c8   00000000    rw- .bss
 
@@ -41,7 +41,7 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    00000020     
                   00000000    00000020     HL_sys_intvecs.obj (.intvecs)
 
-.text      0    00000020    00005350     
+.text      0    00000020    00005398     
                   00000020    00000bd0     HL_spi.obj (.text)
                   00000bf0    000009cc     HL_pinmux.obj (.text)
                   000015bc    0000095c     HL_system.obj (.text)
@@ -53,29 +53,31 @@ section   page    origin      length       input sections
                   0000412c    0000036c     HL_sys_mpu.obj (.text)
                   00004498    0000033c     HL_sys_vim.obj (.text:retain)
                   000047d4    000002ac     HL_spi.obj (.text:retain)
-                  00004a80    00000234     HL_sys_main.obj (.text)
-                  00004cb4    00000180     rtsv7R4_A_le_v3D16_eabi.lib : memcpy32.asm.obj (.text)
-                  00004e34    00000178     HL_esm.obj (.text:retain)
-                  00004fac    00000134     rtsv7R4_A_le_v3D16_eabi.lib : s_floor.c.obj (.text:floor)
-                  000050e0    000000b4     HL_sys_startup.obj (.text:retain)
-                  00005194    000000b0     rtsv7R4_A_le_v3D16_eabi.lib : memset32.asm.obj (.text)
-                  00005244    00000098     HL_notification.obj (.text)
-                  000052dc    00000068     rtsv7R4_A_le_v3D16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  00005344    00000020                                 : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
-                  00005364    00000008                                 : exit.c.obj (.text:abort:abort)
-                  0000536c    00000004     HL_sys_phantom.obj (.text:retain)
+                  00004a80    00000228     HL_sys_main.obj (.text)
+                  00004ca8    00000180     rtsv7R4_A_le_v3D16_eabi.lib : memcpy32.asm.obj (.text)
+                  00004e28    00000178     HL_esm.obj (.text:retain)
+                  00004fa0    00000134     rtsv7R4_A_le_v3D16_eabi.lib : s_floor.c.obj (.text:floor)
+                  000050d4    000000b4     HL_sys_startup.obj (.text:retain)
+                  00005188    000000b0     rtsv7R4_A_le_v3D16_eabi.lib : memset32.asm.obj (.text)
+                  00005238    00000098     HL_notification.obj (.text)
+                  000052d0    00000068     rtsv7R4_A_le_v3D16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00005338    00000050                                 : u_div32.asm.obj (.text)
+                  00005388    00000020                                 : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  000053a8    00000008                                 : exit.c.obj (.text:abort:abort)
+                  000053b0    00000004     HL_sys_phantom.obj (.text:retain)
+                  000053b4    00000004     rtsv7R4_A_le_v3D16_eabi.lib : div0.asm.obj (.text)
 
-.const     0    00005380    0000044c     
-                  00005380    00000210     HL_sys_main.obj (.const:$P$T0$1)
-                  00005590    00000200     HL_sys_vim.obj (.const:s_vim_init)
-                  00005790    00000028     herculesprintflib.lib : herculesprintf.obj (.const:dv)
-                  000057b8    00000010                           : herculesprintf.obj (.const:.string:hex$1)
-                  000057c8    00000004     HL_sys_main.obj (.const:$P$T1$2)
+.const     0    000053c0    000009f8     
+                  000053c0    000007bc     HL_sys_main.obj (.const:$P$T0$1)
+                  00005b7c    00000200     HL_sys_vim.obj (.const:s_vim_init)
+                  00005d7c    00000028     herculesprintflib.lib : herculesprintf.obj (.const:dv)
+                  00005da4    00000010                           : herculesprintf.obj (.const:.string:hex$1)
+                  00005db4    00000004     HL_sys_main.obj (.const:$P$T1$2)
 
-.cinit     0    000057e0    00000014     
-                  000057e0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  000057e8    00000004     (__TI_handler_table)
-                  000057ec    00000008     (__TI_cinit_table)
+.cinit     0    00005dc0    00000014     
+                  00005dc0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00005dc8    00000004     (__TI_handler_table)
+                  00005dcc    00000008     (__TI_cinit_table)
 
 .bss       0    08001500    000000c8     UNINITIALIZED
                   08001500    00000078     HL_spi.obj (.bss:g_spiPacket_t)
@@ -88,11 +90,11 @@ MODULE SUMMARY
     .\source\
        HL_spi.obj             3708    0         120    
        HL_sys_vim.obj         3188    512       0      
+       HL_sys_main.obj        552     1984      0      
        HL_pinmux.obj          2508    0         0      
        HL_system.obj          2396    0         0      
        HL_esm.obj             2308    0         0      
        HL_sci.obj             2160    0         80     
-       HL_sys_main.obj        564     532       0      
        HL_sys_core.obj        964     0         0      
        HL_sys_mpu.obj         876     0         0      
        HL_sys_startup.obj     180     0         0      
@@ -100,7 +102,7 @@ MODULE SUMMARY
        HL_sys_intvecs.obj     32      0         0      
        HL_sys_phantom.obj     4       0         0      
     +--+----------------------+-------+---------+---------+
-       Total:                 19040   1044      200    
+       Total:                 19028   2496      200    
                                                        
     C:/Users/nlcmo/workspace_v8/project1/QController/Hercules/herculesprintflib/Debug/herculesprintflib.lib
        herculesprintf.obj     1308    56        0      
@@ -112,25 +114,27 @@ MODULE SUMMARY
        s_floor.c.obj          308     0         0      
        memset32.asm.obj       176     0         0      
        autoinit.c.obj         104     0         0      
+       u_div32.asm.obj        80      0         0      
        copy_zero_init.c.obj   32      0         0      
        exit.c.obj             8       0         0      
+       div0.asm.obj           4       0         0      
     +--+----------------------+-------+---------+---------+
-       Total:                 1012    0         0      
+       Total:                 1096    0         0      
                                                        
        Linker Generated:      0       20        0      
     +--+----------------------+-------+---------+---------+
-       Grand Total:           21360   1120      200    
+       Grand Total:           21432   2572      200    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 000057ec records: 1, size/record: 8, table size: 8
-	.bss: load addr=000057e0, load size=00000008 bytes, run addr=08001500, run size=000000c8 bytes, compression=zero_init
+__TI_cinit_table @ 00005dcc records: 1, size/record: 8, table size: 8
+	.bss: load addr=00005dc0, load size=00000008 bytes, run addr=08001500, run size=000000c8 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 000057e8 records: 1, size/record: 4, table size: 4
+__TI_handler_table @ 00005dc8 records: 1, size/record: 4, table size: 4
 	index: 0, handler: __TI_zero_init
 
 
@@ -138,35 +142,39 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                                
 -------   ----                                
-00005364  C$$EXIT                             
+000053a8  C$$EXIT                             
 UNDEFED   SHT$$INIT_ARRAY$$Base               
 UNDEFED   SHT$$INIT_ARRAY$$Limit              
 000008ac  SpiRxStatus                         
 00000820  SpiTxStatus                         
-000057ec  __TI_CINIT_Base                     
-000057f4  __TI_CINIT_Limit                    
-000057e8  __TI_Handler_Table_Base             
-000057ec  __TI_Handler_Table_Limit            
+00005dcc  __TI_CINIT_Base                     
+00005dd4  __TI_CINIT_Limit                    
+00005dc8  __TI_Handler_Table_Base             
+00005dcc  __TI_Handler_Table_Limit            
 00004124  __TI_PINIT_Base                     
 00004128  __TI_PINIT_Limit                    
-000052dc  __TI_auto_init_nobinit_nopinit      
+000052d0  __TI_auto_init_nobinit_nopinit      
 ffffffff  __TI_pprof_out_hndl                 
 ffffffff  __TI_prof_data_size                 
 ffffffff  __TI_prof_data_start                
 00000000  __TI_static_base__                  
-00005344  __TI_zero_init_nomemset             
-00005194  __aeabi_memclr                      
-00005194  __aeabi_memclr4                     
-00005194  __aeabi_memclr8                     
-00004cb4  __aeabi_memcpy                      
-00004cb4  __aeabi_memcpy4                     
-00004cb4  __aeabi_memcpy8                     
-00005198  __aeabi_memset                      
-00005198  __aeabi_memset4                     
-00005198  __aeabi_memset8                     
+00005388  __TI_zero_init_nomemset             
+000053b4  __aeabi_idiv0                       
+000053b4  __aeabi_ldiv0                       
+00005188  __aeabi_memclr                      
+00005188  __aeabi_memclr4                     
+00005188  __aeabi_memclr8                     
+00004ca8  __aeabi_memcpy                      
+00004ca8  __aeabi_memcpy4                     
+00004ca8  __aeabi_memcpy8                     
+0000518c  __aeabi_memset                      
+0000518c  __aeabi_memset4                     
+0000518c  __aeabi_memset8                     
+00005338  __aeabi_uidiv                       
+00005338  __aeabi_uidivmod                    
 ffffffff  __binit__                           
 ffffffff  __c_args__                          
-000050e0  _c_int00                            
+000050d4  _c_int00                            
 000040d8  _cacheDisable_                      
 00004094  _cacheEnable_                       
 00004074  _checkMemInitOn_                    
@@ -213,11 +221,11 @@ ffffffff  __c_args__
 0000446c  _mpuSetRegionTypeAndPermission_     
 0000444c  _mpuSetRegion_                      
 UNDEFED   _system_post_cinit                  
-00005364  abort                               
+000053a8  abort                               
 ffffffff  binit                               
-0000527c  dmaGroupANotification               
-000052c8  epcCAMFullNotification              
-000052cc  epcFIFOFullNotification             
+00005270  dmaGroupANotification               
+000052bc  epcCAMFullNotification              
+000052c0  epcFIFOFullNotification             
 000032d0  esmActivateNormalOperation          
 0000341c  esmClearStatus                      
 00003480  esmClearStatusBuffer                
@@ -236,33 +244,33 @@ ffffffff  binit
 000034bc  esmGetStatus                        
 00003588  esmGetStatusBuffer                  
 00003540  esmGetStatusUpper                   
-00005244  esmGroup1Notification               
-00005258  esmGroup2Notification               
-0000526c  esmGroup3Notification               
-00004e34  esmHighInterrupt                    
+00005238  esmGroup1Notification               
+0000524c  esmGroup2Notification               
+00005260  esmGroup3Notification               
+00004e28  esmHighInterrupt                    
 000030c0  esmInit                             
 00003638  esmSelfTestStatus                   
 0000349c  esmSetCounterPreloadValue           
 00003368  esmSetInterruptLevel                
 000033dc  esmSetInterruptLevelUpper           
 000032c0  esmTriggerErrorPinReset             
-00004fac  floor                               
-00004fac  floorl                              
+00004fa0  floor                               
+00004fa0  floorl                              
 00001928  getResetSource                      
 00003a50  hercules_printf                     
 00004a80  main                                
 00001758  mapClocks                           
-00004cb4  memcpy                              
-000051a4  memset                              
+00004ca8  memcpy                              
+00005198  memset                              
 000047d4  mibspi1HighLevelInterrupt           
 00000bf0  muxInit                             
 000016a4  periphInit                          
-0000536c  phantomInterrupt                    
+000053b0  phantomInterrupt                    
 00000000  resetEntry                          
 00002f0c  sci1GetConfigValue                  
 00002d80  sciDisableLoopback                  
 00002e34  sciDisableNotification              
-00004c08  sciDisplayText                      
+00004bf8  sciDisplayText                      
 00002d4c  sciEnableLoopback                   
 00002d9c  sciEnableNotification               
 00002ecc  sciEnterResetState                  
@@ -271,7 +279,7 @@ ffffffff  binit
 00002bc4  sciIsIdleDetected                   
 00002ba8  sciIsRxReady                        
 000029f8  sciIsTxReady                        
-00005290  sciNotification                     
+00005284  sciNotification                     
 00002c3c  sciReceive                          
 00002c10  sciReceiveByte                      
 00002be0  sciRxError                          
@@ -286,10 +294,10 @@ ffffffff  binit
 000009b8  spiDisableNotification              
 00000938  spiEnableLoopback                   
 00000988  spiEnableNotification               
-000052b8  spiEndNotification                  
+000052ac  spiEndNotification                  
 00000288  spiGetData                          
 00000020  spiInit                             
-000052a4  spiNotification                     
+00005298  spiNotification                     
 0000016c  spiReceiveData                      
 000006e0  spiSendAndGetData                   
 000004ac  spiSendData                         
@@ -306,7 +314,7 @@ ffffffff  binit
 00002090  vimEnableInterrupt                  
 00002304  vimGetConfigValue                   
 00001f18  vimInit                             
-00004c68  wait                                
+00004c58  wait                                
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -438,41 +446,45 @@ address   name
 00004498  vimECCErrorHandler                  
 000047d4  mibspi1HighLevelInterrupt           
 00004a80  main                                
-00004c08  sciDisplayText                      
-00004c68  wait                                
-00004cb4  __aeabi_memcpy                      
-00004cb4  __aeabi_memcpy4                     
-00004cb4  __aeabi_memcpy8                     
-00004cb4  memcpy                              
-00004e34  esmHighInterrupt                    
-00004fac  floor                               
-00004fac  floorl                              
-000050e0  _c_int00                            
-00005194  __aeabi_memclr                      
-00005194  __aeabi_memclr4                     
-00005194  __aeabi_memclr8                     
-00005198  __aeabi_memset                      
-00005198  __aeabi_memset4                     
-00005198  __aeabi_memset8                     
-000051a4  memset                              
-00005244  esmGroup1Notification               
-00005258  esmGroup2Notification               
-0000526c  esmGroup3Notification               
-0000527c  dmaGroupANotification               
-00005290  sciNotification                     
-000052a4  spiNotification                     
-000052b8  spiEndNotification                  
-000052c8  epcCAMFullNotification              
-000052cc  epcFIFOFullNotification             
-000052dc  __TI_auto_init_nobinit_nopinit      
-00005344  __TI_zero_init_nomemset             
-00005364  C$$EXIT                             
-00005364  abort                               
-0000536c  phantomInterrupt                    
-000057e8  __TI_Handler_Table_Base             
-000057ec  __TI_CINIT_Base                     
-000057ec  __TI_Handler_Table_Limit            
-000057f4  __TI_CINIT_Limit                    
+00004bf8  sciDisplayText                      
+00004c58  wait                                
+00004ca8  __aeabi_memcpy                      
+00004ca8  __aeabi_memcpy4                     
+00004ca8  __aeabi_memcpy8                     
+00004ca8  memcpy                              
+00004e28  esmHighInterrupt                    
+00004fa0  floor                               
+00004fa0  floorl                              
+000050d4  _c_int00                            
+00005188  __aeabi_memclr                      
+00005188  __aeabi_memclr4                     
+00005188  __aeabi_memclr8                     
+0000518c  __aeabi_memset                      
+0000518c  __aeabi_memset4                     
+0000518c  __aeabi_memset8                     
+00005198  memset                              
+00005238  esmGroup1Notification               
+0000524c  esmGroup2Notification               
+00005260  esmGroup3Notification               
+00005270  dmaGroupANotification               
+00005284  sciNotification                     
+00005298  spiNotification                     
+000052ac  spiEndNotification                  
+000052bc  epcCAMFullNotification              
+000052c0  epcFIFOFullNotification             
+000052d0  __TI_auto_init_nobinit_nopinit      
+00005338  __aeabi_uidiv                       
+00005338  __aeabi_uidivmod                    
+00005388  __TI_zero_init_nomemset             
+000053a8  C$$EXIT                             
+000053a8  abort                               
+000053b0  phantomInterrupt                    
+000053b4  __aeabi_idiv0                       
+000053b4  __aeabi_ldiv0                       
+00005dc8  __TI_Handler_Table_Base             
+00005dcc  __TI_CINIT_Base                     
+00005dcc  __TI_Handler_Table_Limit            
+00005dd4  __TI_CINIT_Limit                    
 ffffffff  __TI_pprof_out_hndl                 
 ffffffff  __TI_prof_data_size                 
 ffffffff  __TI_prof_data_start                
@@ -483,4 +495,4 @@ UNDEFED   SHT$$INIT_ARRAY$$Base
 UNDEFED   SHT$$INIT_ARRAY$$Limit              
 UNDEFED   _system_post_cinit                  
 
-[169 symbols]
+[173 symbols]
