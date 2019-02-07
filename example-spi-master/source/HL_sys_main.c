@@ -114,7 +114,7 @@ int main(void)
 
     };
     // SPI configuration. Left to right: Chip select hold, WS_Delay, Data format, Chip select.
-    spiDAT1_t config = {false, true, SPI_FMT_0, CS_0};
+    spiDAT1_t config = {false, true, SPI_FMT_0, CS_1};
 
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
@@ -124,10 +124,11 @@ int main(void)
     while (1) {
         for (j = 0; j < 990; ++j)
         {
-            spiTransmitData(spiREG1,&config,1,&TG0_TX_DATA[j]);
+            spiTransmitData(spiREG3,&config,1,&TG0_TX_DATA[j]);
 
-            delay = 100000;
-            while (delay--);
+            // If slave prints in between receiving, delay of at least 100,000 needed.
+            /*delay = 1000;
+            while (delay--);*/
         }
     }
 

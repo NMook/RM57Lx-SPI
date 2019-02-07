@@ -99,7 +99,7 @@ int main(void)
                                    55987,  32194,  11002,  30245,  28031,  30902,  43478,  32559,  34078,  10344,  39270,  20357,  21110,  20356,  45821,  10415,  57007,  16136,  5392,   48475,  57098,  38506,  5644,   18991,  63081,  3251,   49612,  44534,  56569,  4817,   63135,  27507,  4332,   1780,   3278,   17833,  4827,   56989,  1401,   22539,  31099,  6342,   43069,  19790,  17162,  5706,   59582,  24685,  39956,  6537,   48727,  51984,  62434,  17325,  30707,  14238,  33398,  58049,  47556,  32886,  57684,  15660,  61418,  11838,  13018,  10921
 
     };
-    uint16 TG0_RX_DATA[990] = {0,   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    uint16 TG0_RX_DATA[990] = {0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
                                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -117,7 +117,7 @@ int main(void)
 
     };
     // SPI configuration. Left to right: Chip select hold, WS_Delay, Data format, Chip select.
-    spiDAT1_t config = {false, true, SPI_FMT_0, CS_0};
+    spiDAT1_t config = {false, true, SPI_FMT_0, CS_1};
 
     /* Enable IRQ Interrupt in Cortex R4 CPU */
     _enable_interrupt_();
@@ -127,21 +127,23 @@ int main(void)
 
     uint16 receivedNumber;
     uint32_t j = 0;
-    while (j < 99000) {
-        if (spiReceiveData(spiREG1,&config,1,&receivedNumber) == 0) {
-            hercules_printf(sciREG1, "%u\n\r", receivedNumber); // Print received number to UART
-            TG0_RX_DATA[j % 990] = receivedNumber;
+    uint32_t k = 0;
+    while (j < 99000000) {
+        k = j % 990;
+        if (spiReceiveData(spiREG3,&config,1,&receivedNumber) == 0) {
+            //hercules_printf(sciREG1, "%u\n\r", receivedNumber); // Print received number to UART
+            TG0_RX_DATA[k] = receivedNumber;
         } else {
-            spiREG1->FLG |= 0xFF;   // Reset error flag
-            hercules_printf(sciREG1, "ERROR\n\r");
-            TG0_RX_DATA[j % 990] = 0xFFFF;
-            if (j != 0) {   // Skip next message if not the first.
+            spiREG3->FLG |= 0xFF;   // Reset error flag
+            TG0_RX_DATA[k] = 0xFFFF;
+            if (k != 0) {   // Skip next message if not the first.
                 j++;
             }
         }
 
-        // Checking received message with correct message.
-        if (TG0_RX_DATA[j] != TG0_TX_DATA[j]) {
+        // Checking received message with correct message after 2240th message.
+        if (TG0_RX_DATA[k] != TG0_TX_DATA[k]) {
+            //hercules_printf(sciREG1, "ERROR %u\n\r", j);
             error++;
         }
         j++;
